@@ -67,8 +67,8 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
     plugins: [
       laravel({
         input: [
-          'resources/app.scss',
-          'resources/app.js',
+          'resources/json-editor-style.scss',
+          'resources/json-editor.js',
         ],
         refresh: true,
       }),

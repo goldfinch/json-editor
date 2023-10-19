@@ -1,0 +1,12 @@
+{
+  "resources/json-editor-style.scss": {
+    "file": "resources/assets/json-editor-style.css",
+    "isEntry": true,
+    "src": "resources/json-editor-style.scss"
+  },
+  "resources/json-editor.js": {
+    "file": "resources/assets/json-editor.js",
+    "isEntry": true,
+    "src": "resources/json-editor.js"
+  }
+}

@@ -3,6 +3,7 @@
 namespace Goldfinch\JSONEditor\Forms;
 
 use SilverStripe\Forms\TextField;
+use SilverStripe\View\Requirements;
 
 class JSONEditorField extends TextField
 {
@@ -10,6 +11,7 @@ class JSONEditorField extends TextField
     {
         parent::__construct($name, $title, $value);
 
-        //
+        Requirements::css('goldfinch/json-editor:client/dist/resources/assets/json-editor-style.css');
+        Requirements::javascript('goldfinch/json-editor:client/dist/resources/assets/json-editor.js');
     }
 }
