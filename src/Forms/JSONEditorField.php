@@ -8,7 +8,7 @@ use SilverStripe\View\Requirements;
 
 class JSONEditorField extends TextField
 {
-    public function __construct($name, $title = null, $parent = null, $value = '{}', $form = null, $schema = '{}')
+    public function __construct($name, $title = null, $parent = null, $options = [], $value = '{}', $form = null, $schema = '{}')
     {
         $classname = (new ReflectionClass($parent))->getShortName();
         $defaultSchema = BASE_PATH . '/app/_schema/' . $classname . '-' . $name . '.json';
@@ -27,7 +27,7 @@ class JSONEditorField extends TextField
             $schema = '{}';
         }
 
-        $value = $schema;
+        $value = '{}';
 
         parent::__construct($name, $title, $value);
         // parent::__construct($name, $title, $value, '', $form);
@@ -38,5 +38,6 @@ class JSONEditorField extends TextField
         $this->addExtraClass('jsoneditorfield');
         $this->setInputType('hidden');
         $this->setAttribute('data-field-schema', $schema);
+        $this->setAttribute('data-field-options', json_encode($options));
     }
 }

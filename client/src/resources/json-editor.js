@@ -10,6 +10,7 @@ window.jsoneditorSetDefaultValue = (e) =>
     var editorist = window.jsoneditor[my_id];
     var schema = window.jsoneditorschema[my_id];
     if (editorist) {
+      console.log(schema.properties)
         editorist.setValue(schema.properties)
     }
   }
@@ -23,36 +24,47 @@ window.jsoneditorSetDefaultValue = (e) =>
 	      this.each( function() {
               var startval = this.value;
 	      var schema = this.getAttribute('data-field-schema');
+	      var fieldOptions = JSON.parse(this.getAttribute('data-field-options'));
 	      var my_id = this.id;
 	      var editorist = document.getElementById(this.id + "_Editor");
 
-              var editor = new JSONEditor(editorist, {
+              var options = {
                 ajax: true,
                 schema: JSON.parse(schema),
-                startval: startval ? JSON.parse(startval) : '',
-                // disable_collapse: true,
                 // required_by_default: true,
-                // disable_properties: true,
-                // disable_edit_json: true,
+                disable_collapse: true,
+                disable_properties: true,
+                disable_edit_json: true,
                 // no_additional_properties: true,
                 theme: "bootstrap5",
 
                 iconlib: 'bootstrap',
-                object_layout: 'normal',
-                show_errors: 'interaction',
-              });
+                // object_layout: 'normal',
+                // show_errors: 'interaction',
+              };
+
+              if (startval && startval != '{}') {
+                options.startval = JSON.parse(startval)
+              }
+
+              var editor = new JSONEditor(editorist, options);
 
               editor.on('ready',function() {
 
-                  if (schema && schema != '' && schema != '{}' && JSON.parse(schema).type) {
-                  if (!window.jsoneditor) {
-                    window.jsoneditor = [];
-                    window.jsoneditorschema = [];
-                  }
-                  window.jsoneditor[my_id] = editor;
-                  window.jsoneditorschema[my_id] = JSON.parse(schema);
+                  if (fieldOptions && fieldOptions.set_default_button) {
 
-                  jQuery('#' + my_id).parent().prepend('<button data-id="'+my_id+'" onclick="window.jsoneditorSetDefaultValue(this)" type="button" title="Set Default value" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i><span> Set Default value</span></button>');
+                    if (schema && schema != '' && schema != '{}' && JSON.parse(schema).type) {
+                    if (!window.jsoneditor) {
+                      window.jsoneditor = [];
+                      window.jsoneditorschema = [];
+                      window.jsoneditorfieldoptions = [];
+                    }
+                    window.jsoneditor[my_id] = editor;
+                    window.jsoneditorschema[my_id] = JSON.parse(schema);
+                    window.jsoneditorfieldoptions[my_id] = fieldOptions;
+
+                    jQuery('#' + my_id).parent().prepend('<button data-id="'+my_id+'" onclick="window.jsoneditorSetDefaultValue(this)" type="button" title="Set Default value" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i><span> Set Default value</span></button>');
+                  }
                 }
               });
 

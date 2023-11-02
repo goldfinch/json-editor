@@ -152,3 +152,7 @@ div[data-theme="bootstrap5"] .row > [data-schemapath] > *:nth-child(2) {
   display: inline-block;
   opacity: .5;
 }
+
+div[data-theme=bootstrap5] .card.card-body > div > .je-object__container {
+  margin-bottom: 20px;
+}
