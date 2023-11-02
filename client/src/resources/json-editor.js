@@ -1,6 +1,20 @@
 import { JSONEditor } from '@json-editor/json-editor'
+// var JSONEditor = ns.JSONEditor; // (for dev only)
 
 var ss = ss || {};
+
+function setDefaultValue(e)
+{
+  var my_id = e.getAttribute('data-id');
+  if (my_id) {
+    var editorist = window.jsoneditor[my_id];
+    var schema = window.jsoneditorschema[my_id];
+    if (editorist) {
+      console.log(editorist, schema)
+        editorist.setValue(schema.properties)
+    }
+  }
+}
 
 (function($) {
     $.entwine('ss', function($) {
@@ -29,6 +43,17 @@ var ss = ss || {};
                 show_errors: 'interaction',
               });
 
+              editor.on('ready',function() {
+                if (!window.jsoneditor) {
+                  window.jsoneditor = [];
+                  window.jsoneditorschema = [];
+                }
+                window.jsoneditor[my_id] = editor;
+                window.jsoneditorschema[my_id] = JSON.parse(schema);
+
+                jQuery('#' + my_id).parent().prepend('<button data-id="'+my_id+'" onclick="setDefaultValue(this)" type="button" title="Set Default value" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i><span> Set Default value</span></button>');
+              });
+
 	      editor.on('change',function() {
         	var errors = editor.validate();
 	        var indicator = document.getElementById('valid_indicator');
@@ -54,4 +79,3 @@ var ss = ss || {};
         });
     });
 }(jQuery));
-

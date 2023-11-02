@@ -7,17 +7,20 @@ use SilverStripe\View\Requirements;
 
 class JSONEditorField extends TextField
 {
-    public function __construct($name, $title = null, $value = '{}', $form = null, $schema = '{}')
+    public function __construct($name, $title = null, $parent = null, $value = '{}', $form = null, $schema = '{}')
     {
-        if (!$value)
-        {
-            $value = '{}';
-        }
+        $defaultSchema = BASE_PATH . '/app/_schema/' . $parent->singular_name() . '-' . $name . '.json';
 
-        if (!$schema)
+        if (file_exists($defaultSchema))
+        {
+            $schema = file_get_contents($defaultSchema);
+        }
+        else
         {
             $schema = '{}';
         }
+
+        $value = $schema;
 
         parent::__construct($name, $title, $value);
         // parent::__construct($name, $title, $value, '', $form);
