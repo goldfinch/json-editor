@@ -44,7 +44,7 @@ window.jsoneditorSetDefaultValue = (e) =>
 
               editor.on('ready',function() {
 
-                if (schema && schema != '' && schema != '{}' && schema.type) {
+                  if (schema && schema != '' && schema != '{}' && JSON.parse(schema).type) {
                   if (!window.jsoneditor) {
                     window.jsoneditor = [];
                     window.jsoneditorschema = [];
