@@ -10,7 +10,6 @@ function setDefaultValue(e)
     var editorist = window.jsoneditor[my_id];
     var schema = window.jsoneditorschema[my_id];
     if (editorist) {
-      console.log(editorist, schema)
         editorist.setValue(schema.properties)
     }
   }
