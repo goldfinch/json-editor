@@ -3,7 +3,7 @@ import { JSONEditor } from '@json-editor/json-editor'
 
 var ss = ss || {};
 
-function setDefaultValue(e)
+window.jsoneditorSetDefaultValue = (e) =>
 {
   var my_id = e.getAttribute('data-id');
   if (my_id) {
@@ -43,14 +43,17 @@ function setDefaultValue(e)
               });
 
               editor.on('ready',function() {
-                if (!window.jsoneditor) {
-                  window.jsoneditor = [];
-                  window.jsoneditorschema = [];
-                }
-                window.jsoneditor[my_id] = editor;
-                window.jsoneditorschema[my_id] = JSON.parse(schema);
 
-                jQuery('#' + my_id).parent().prepend('<button data-id="'+my_id+'" onclick="setDefaultValue(this)" type="button" title="Set Default value" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i><span> Set Default value</span></button>');
+                if (schema && schema != '' && schema != '{}' && schema.type) {
+                  if (!window.jsoneditor) {
+                    window.jsoneditor = [];
+                    window.jsoneditorschema = [];
+                  }
+                  window.jsoneditor[my_id] = editor;
+                  window.jsoneditorschema[my_id] = JSON.parse(schema);
+
+                  jQuery('#' + my_id).parent().prepend('<button data-id="'+my_id+'" onclick="window.jsoneditorSetDefaultValue(this)" type="button" title="Set Default value" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i><span> Set Default value</span></button>');
+                }
               });
 
 	      editor.on('change',function() {

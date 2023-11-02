@@ -20,6 +20,11 @@ class JSONEditorField extends TextField
             $schema = '{}';
         }
 
+        if ($schema === '')
+        {
+            $schema = '{}';
+        }
+
         $value = $schema;
 
         parent::__construct($name, $title, $value);
