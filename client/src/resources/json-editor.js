@@ -35,6 +35,7 @@ window.jsoneditorSetDefaultValue = (e) =>
                 disable_collapse: true,
                 disable_properties: true,
                 disable_edit_json: true,
+                enable_array_copy: true,
                 // no_additional_properties: true,
                 theme: "bootstrap5",
 
