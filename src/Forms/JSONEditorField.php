@@ -2,6 +2,7 @@
 
 namespace Goldfinch\JSONEditor\Forms;
 
+use ReflectionClass;
 use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 
@@ -9,7 +10,8 @@ class JSONEditorField extends TextField
 {
     public function __construct($name, $title = null, $parent = null, $value = '{}', $form = null, $schema = '{}')
     {
-        $defaultSchema = BASE_PATH . '/app/_schema/' . $parent->singular_name() . '-' . $name . '.json';
+        $classname = (new ReflectionClass($parent))->getShortName();
+        $defaultSchema = BASE_PATH . '/app/_schema/' . $classname . '-' . $name . '.json';
 
         if (file_exists($defaultSchema))
         {
