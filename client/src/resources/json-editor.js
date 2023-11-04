@@ -26,7 +26,8 @@ window.jsoneditorSetDefaultValue = (e) =>
 	      var schema = this.getAttribute('data-field-schema');
 	      var fieldOptions = JSON.parse(this.getAttribute('data-field-options'));
 	      var my_id = this.id;
-	      var editorist = document.getElementById(this.id + "_Editor");
+
+        var editorist = document.getElementById( jQuery(this).parent().find('.json-editor').attr('id') ); // this.id + "_Editor"
 
               var options = {
                 ajax: true,
@@ -73,21 +74,29 @@ window.jsoneditorSetDefaultValue = (e) =>
         	var errors = editor.validate();
 	        var indicator = document.getElementById('valid_indicator');
 	        var save_button = document.getElementById('Form_ItemEditForm_action_doSave');
-        	if(errors.length) {
-	          indicator.style.color = 'red';
-	          indicator.textContent = "not valid";
-        	  save_button.disabled = true;
-	          save_button.title = "JSON not valid; see console for details";
-        	  console.log(errors);
-        	}
-	        else {
-        	  indicator.style.color = 'green';
-	          indicator.textContent = "valid";
-        	  save_button.disabled = false;
-	          save_button.title = '';
-		  var input = document.getElementById(my_id);
-	  	  input.value = JSON.stringify(editor.getValue());
-        	}
+
+          if (!save_button) {
+            save_button = document.getElementById('Form_EditForm_action_save_siteconfig');
+          }
+
+          if (save_button)
+          {
+            if(errors.length) {
+              indicator.style.color = 'red';
+              indicator.textContent = "not valid";
+              save_button.disabled = true;
+              save_button.title = "JSON not valid; see console for details";
+              console.log(errors);
+            }
+            else {
+              indicator.style.color = 'green';
+              indicator.textContent = "valid";
+              save_button.disabled = false;
+              save_button.title = '';
+              var input = document.getElementById(my_id);
+              input.value = JSON.stringify(editor.getValue());
+            }
+          }
               });
 });
             }
