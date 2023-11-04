@@ -1,3 +1,7 @@
 ---
 Name: goldfinch-json-editor
+After: '#corefieldtypes'
 ---
+SilverStripe\Core\Injector\Injector:
+  JSONText:
+    class: Goldfinch\JSONEditor\ORM\FieldType\DBJSONText
