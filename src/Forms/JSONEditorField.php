@@ -13,13 +13,9 @@ class JSONEditorField extends TextField
         $classname = (new ReflectionClass($parent))->getShortName();
         $defaultSchema = BASE_PATH . '/app/_schema/' . $classname . '-' . $name . '.json';
 
-        if (file_exists($defaultSchema))
+        if ($schema != '{}' && file_exists($defaultSchema))
         {
             $schema = file_get_contents($defaultSchema);
-        }
-        else
-        {
-            $schema = '{}';
         }
 
         if ($schema === '')
