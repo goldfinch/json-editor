@@ -10,7 +10,7 @@ div[data-theme="bootstrap5"].json-editor.je-ready {
 }
 
 div[data-theme="bootstrap5"] .form-group {
-  margin: 10px auto 20px;
+  margin: 10px auto 0 !important;
 }
 
 div[data-theme="bootstrap5"] .je-modal {
@@ -163,4 +163,9 @@ div[data-theme=bootstrap5] label {
 
 div[data-theme=bootstrap5] label.form-check-label {
   display: flex;
+  font-weight: 500;
+}
+
+.form-check-input:checked[type=checkbox] {
+  background-color: #fff;
 }
