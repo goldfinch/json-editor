@@ -160,3 +160,7 @@ div[data-theme=bootstrap5] .card.card-body > div > .je-object__container {
 div[data-theme=bootstrap5] label {
   margin-left: 0 !important;
 }
+
+div[data-theme=bootstrap5] label.form-check-label {
+  display: flex;
+}
