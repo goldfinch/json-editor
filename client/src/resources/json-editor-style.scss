@@ -169,3 +169,7 @@ div[data-theme=bootstrap5] label.form-check-label {
 .form-check-input:checked[type=checkbox] {
   background-color: #fff;
 }
+
+div[data-theme=bootstrap5] textarea.form-control {
+  min-height: 173px;
+}

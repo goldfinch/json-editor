@@ -12,3 +12,16 @@ app/_schema/{$Classname}-{$FieldName}.json
 }
 
 ```
+
+extension
+
+```
+App\Blocks\GridBlock:
+  extensions:
+    - Goldfinch\JSONEditor\Extensions\JsonDataExtension
+```
+
+```
+<% with $Json.Parse %>
+<% end_with %>
+```
