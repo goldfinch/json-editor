@@ -173,3 +173,19 @@ div[data-theme=bootstrap5] label.form-check-label {
 div[data-theme=bootstrap5] textarea.form-control {
   min-height: 173px;
 }
+.as-none-object {
+  width: 100%;
+}
+.as-none-object .card-title {
+  display: none !important;
+}
+.as-none-object .card-body {
+  margin-top: 0 !important;
+}
+.as-none-object *:after {
+  display: none !important;
+}
+
+.json-editor .select2-hidden-accessible + .chosen-container {
+  display: none;
+}

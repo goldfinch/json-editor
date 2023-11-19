@@ -65,28 +65,10 @@ class JSONEditorField extends TextField
         //     "enum": ["black","red","green","blue","yellow","orange","purple","brown","white","cyan","maagenta"]
         //   }
         // },
-        Requirements::customCSS(<<<CSS
-          .json-editor .select2-hidden-accessible + .chosen-container {
-            display: none;
-          }
-          CSS
-        );
+        // Requirements::customCSS(<<<CSS
 
-        Requirements::customCSS(<<<CSS
-          .as-none-object {
-            width: 100%;
-          }
-          .as-none-object .card-title {
-            display: none !important;
-          }
-          .as-none-object .card-body {
-            margin-top: 0 !important;
-          }
-          .as-none-object *:after {
-            display: none !important;
-          }
-          CSS
-        );
+        //   CSS
+        // );
 
         // choiser
         // Requirements::css('https://cdn.jsdelivr.net/npm/choices.js/public/assets/styles/choices.min.css');
