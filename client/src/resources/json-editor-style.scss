@@ -189,3 +189,21 @@ div[data-theme=bootstrap5] textarea.form-control {
 .json-editor .select2-hidden-accessible + .chosen-container {
   display: none;
 }
+
+div[data-theme=bootstrap5] .as-none-object [data-schemapath]>*:nth-child(1) {
+  width: 100% !important;
+}
+
+div[data-theme=bootstrap5] .form-check-input[type=checkbox] {
+  margin-left: 0 !important;
+}
+
+.as-none-object .col-md-12 {
+  display: flex;
+}
+
+div[data-theme="bootstrap5"] .form-text {
+  width: 100%;
+  margin-top: 0;
+  margin-bottom: 10px;
+}
