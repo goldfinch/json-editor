@@ -36,7 +36,5 @@ class JsonDataExtension extends Extension
                 );
             }
         }
-
-        return $fields;
     }
 }
