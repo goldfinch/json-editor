@@ -164,6 +164,7 @@ div[data-theme=bootstrap5] label {
 div[data-theme=bootstrap5] label.form-check-label {
   display: flex;
   font-weight: 500;
+  padding-left: 20px; // for plain ss styles (no enchantment)
 }
 
 .form-check-input:checked[type=checkbox] {
