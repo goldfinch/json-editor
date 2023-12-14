@@ -52,8 +52,10 @@ class JSONEditorField extends TextField
         // ..
 
         // "format": "select2"
-        Requirements::css('https://cdn.jsdelivr.net/npm/select2@latest/dist/css/select2.min.css');
-        Requirements::javascript('https://cdn.jsdelivr.net/npm/select2@latest/dist/js/select2.min.js');
+            // Requirements::css('https://cdn.jsdelivr.net/npm/select2@latest/dist/css/select2.min.css');
+            // Requirements::javascript('https://cdn.jsdelivr.net/npm/select2@latest/dist/js/select2.min.js');
+            Requirements::css('goldfinch/json-editor:client/lib/select2/select2.min.css');
+            Requirements::javascript('goldfinch/json-editor:client/lib/select2/select2.min.js');
         // "color": {
         //   "type": "array",
         //   "format": "select2",
