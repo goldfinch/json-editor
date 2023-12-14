@@ -76,7 +76,16 @@ window.jsoneditorSetDefaultValue = (e) =>
 	        var save_button = document.getElementById('Form_ItemEditForm_action_doSave');
 
           if (!save_button) {
-            save_button = document.getElementById('Form_EditForm_action_save_siteconfig');
+
+            save_button = document.getElementById('Form_EditForm_action_save');
+
+            if (!save_button) {
+              save_button = document.getElementById('Form_EditForm_action_save_siteconfig');
+            }
+          }
+
+          if (!save_button) {
+              console.error('JSON editor: can\'s save json data due to the unrecognized action button ID on this page, see json-editor.js and extend if needed')
           }
 
           if (save_button)
