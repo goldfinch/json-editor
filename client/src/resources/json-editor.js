@@ -110,7 +110,7 @@ window.jsoneditorSetDefaultValue = (e) => {
                 indicator.style.color = 'red';
                 indicator.textContent = 'not valid';
                 save_button.disabled = true;
-                save_button.title = 'JSON not valid; see console for details';
+                save_button.title = 'Invalid JSON';
                 console.log(errors);
               } else {
                 indicator.style.color = 'green';

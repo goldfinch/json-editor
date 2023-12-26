@@ -3,6 +3,7 @@
 namespace Goldfinch\JSONEditor\Forms;
 
 use ReflectionClass;
+use Composer\InstalledVersions;
 use SilverStripe\Forms\TextField;
 use SilverStripe\View\Requirements;
 
@@ -38,6 +39,11 @@ class JSONEditorField extends TextField
         Requirements::css(
             'goldfinch/json-editor:client/dist/resources/assets/json-editor-style.css',
         );
+        if (InstalledVersions::isInstalled('goldfinch/enchantment')) {
+            Requirements::css(
+                'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.2/font/bootstrap-icons.min.css',
+            );
+        }
         Requirements::javascript(
             'goldfinch/json-editor:client/dist/resources/assets/json-editor.js',
         );
