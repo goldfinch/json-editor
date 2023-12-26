@@ -1,23 +1,22 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
-import autoprefixer from "autoprefixer";
-import * as path from 'path'
-import { viteStaticCopy } from 'vite-plugin-static-copy'
+import autoprefixer from 'autoprefixer';
+import * as path from 'path';
+import { viteStaticCopy } from 'vite-plugin-static-copy';
 import fs from 'fs';
-import initCfg from './app.config.js'
+import initCfg from './app.config.js';
 
 export default defineConfig(({ command, mode, ssrBuild }) => {
+  const cfg = initCfg(command, mode, ssrBuild);
 
-  const cfg = initCfg(command, mode, ssrBuild)
-
-  const host = cfg.host;
+  const { host } = cfg;
 
   return {
 
     resolve: {
       alias: {
         '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
-      }
+      },
     },
 
     server: {
@@ -34,11 +33,11 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
       outDir: '../dist',
       rollupOptions: {
         output: {
-          entryFileNames: `resources/assets/[name].js`,
-          chunkFileNames: `resources/assets/[name]-[hash].js`,
-          assetFileNames: `resources/assets/[name].[ext]`
-        }
-      }
+          entryFileNames: 'resources/assets/[name].js',
+          chunkFileNames: 'resources/assets/[name]-[hash].js',
+          assetFileNames: 'resources/assets/[name].[ext]',
+        },
+      },
     },
     // build: {
     //   emptyOutDir: true,
@@ -85,8 +84,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         plugins: [
           autoprefixer,
         ],
-      }
+      },
     },
   };
-
 });
