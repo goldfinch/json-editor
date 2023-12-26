@@ -55,8 +55,17 @@ class JSONEditorField extends TextField
         // Requirements::javascript('https://cdn.jsdelivr.net/npm/sceditor@2.1.3/minified/formats/xhtml.js');
 
         // "format": "jodit"
-        // Requirements::css('https://unpkg.com/jodit@4.0.0-beta.24/es2021/jodit.min.css');
-        // Requirements::javascript('https://unpkg.com/jodit@4.0.0-beta.24/es2021/jodit.min.js');
+        Requirements::css(
+            'goldfinch/json-editor:client/lib/jodit/jodit.min.css',
+        );
+        Requirements::javascript(
+            'goldfinch/json-editor:client/lib/jodit/jodit.min.js',
+        );
+        // "about": {
+        //     "type": "string",
+        //     "title": "About me",
+        //     "format": "jodit"
+        // }
 
         // "format": "markdown"
         // ..
