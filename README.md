@@ -6,7 +6,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/goldfinch/json-editor.svg?labelColor=333&color=F8C630&label=Downloads)](https://packagist.org/packages/spatie/schema-org)
 [![License](https://img.shields.io/packagist/l/goldfinch/json-editor.svg?labelColor=333&color=F8C630&label=License)](https://packagist.org/packages/spatie/schema-org) 
 
-Indispensable tool to work with JSON data. Makes it easy to handle any JSON schema and adjusts the output for Silverstripe templates.
+Indispensable tool to work with JSON data. Makes it easy to handle any JSON schema in a user-friendly interface and adjusts the output for Silverstripe templates.
 
 This module is using [json-editor](https://github.com/json-editor/json-editor) under the hood. Refer to its [README](https://github.com/json-editor/json-editor/blob/master/README.md) to learn more about JSON Schema, all types, properties, and available options that you can use.
 
