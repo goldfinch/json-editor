@@ -4,9 +4,9 @@
 }
 
 div[data-theme="bootstrap5"].json-editor.je-ready {
-  border-top: 1px dashed #ddd;
-  margin-top: 10px;
   padding-top: 10px;
+  margin-top: 10px;
+  border-top: 1px dashed #ddd;
 }
 
 div[data-theme="bootstrap5"] .form-group {
@@ -14,14 +14,14 @@ div[data-theme="bootstrap5"] .form-group {
 }
 
 div[data-theme="bootstrap5"] .je-modal {
-  border: 1px solid lightgrey;
-  box-shadow: #d6d6d6 0px 0px 6px 0px;
   min-width: 200px;
+  border: 1px solid lightgrey;
+  box-shadow: #d6d6d6 0 0 6px 0;
 }
 
 div[data-theme="bootstrap5"] label {
-  font-weight: 600;
   margin-bottom: 5px;
+  font-weight: 600;
 }
 
 div[data-theme="bootstrap5"] .property-selector {
@@ -29,9 +29,9 @@ div[data-theme="bootstrap5"] .property-selector {
 }
 
 div[data-theme="bootstrap5"] .property-selector-input {
-  margin: 15px 12px;
-  width: 200px;
   top: -1px;
+  width: 200px;
+  margin: 15px 12px;
 }
 
 div[data-theme="bootstrap5"] .property-selector label {
@@ -42,15 +42,15 @@ div[data-theme="bootstrap5"] .property-selector .form-check-label {
   margin-left: 0;
 }
 
-div[data-theme="bootstrap5"] .form-check-input[type=checkbox] {
+div[data-theme="bootstrap5"] .form-check-input[type="checkbox"] {
   margin-left: 5px;
 }
 
 .validationstate {
   display: block;
-  font-weight: 500;
-  font-size: 16px;
   margin-top: 15px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 div[data-theme="bootstrap5"] .card.card-body {
@@ -58,12 +58,12 @@ div[data-theme="bootstrap5"] .card.card-body {
 }
 
 div[data-theme="bootstrap5"] .btn {
-  background-color: #778da9;
-  color: #fff;
-  border-radius: 4px !important;
-  margin: 0 4px;
   height: 30px !important;
   max-height: 30px !important;
+  margin: 0 4px;
+  color: #fff;
+  background-color: #778da9;
+  border-radius: 4px !important;
 }
 
 div[data-theme="bootstrap5"] .btn:first-child {
@@ -80,8 +80,8 @@ div[data-theme="bootstrap5"] .btn-group.je-object__controls {
 }
 
 div[data-theme="bootstrap5"] .form-control {
-  box-shadow: none;
   border: 1px solid #dee2e6;
+  box-shadow: none;
 }
 
 div[data-theme="bootstrap5"] .form-control:focus {
@@ -116,10 +116,10 @@ div[data-theme="bootstrap5"] .btn:visited,
 div[data-theme="bootstrap5"] .btn:active,
 div[data-theme="bootstrap5"] .btn:hover,
 div[data-theme="bootstrap5"] .btn:focus {
+  color: #fff !important;
   background-color: #647b98 !important;
   border-color: #647b98 !important;
   border-radius: 4px;
-  color: #fff !important;
 }
 
 div[data-schematype='array'] h3 {
@@ -132,58 +132,62 @@ div[data-theme="bootstrap5"] .je-object__container {}
 div[data-theme="bootstrap5"] .row > [data-schemapath] {}
 
 div[data-theme="bootstrap5"] .row > [data-schemapath] > *:nth-child(1) {
-  width: 70%;
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: space-between;
+  width: 70%;
 }
 
-div[data-theme="bootstrap5"] .row > [data-schemapath] > *:nth-child(1):after {
-  content: '';
+div[data-theme="bootstrap5"] .row > [data-schemapath] > *:nth-child(1)::after {
+  display: inline-block;
   width: 100%;
   margin-left: 10px;
-  display: inline-block;
+  content: '';
   border-bottom: 1px dashed #ccc;
 }
 
 div[data-theme="bootstrap5"] .row > [data-schemapath] > *:nth-child(2) {
-  width: 30%;
   display: inline-block;
+  width: 30%;
   opacity: .5;
 }
 
-div[data-theme=bootstrap5] .card.card-body > div > .je-object__container {
+div[data-theme="bootstrap5"] .card.card-body > div > .je-object__container {
   margin-bottom: 20px;
 }
 
-div[data-theme=bootstrap5] label {
+div[data-theme="bootstrap5"] label {
   margin-left: 0 !important;
 }
 
-div[data-theme=bootstrap5] label.form-check-label {
+div[data-theme="bootstrap5"] label.form-check-label {
   display: flex;
-  font-weight: 500;
   padding-left: 20px; // for plain ss styles (no enchantment)
+  font-weight: 500;
 }
 
-.form-check-input:checked[type=checkbox] {
+.form-check-input:checked[type="checkbox"] {
   background-color: #fff;
 }
 
-div[data-theme=bootstrap5] textarea.form-control {
+div[data-theme="bootstrap5"] textarea.form-control {
   min-height: 173px;
 }
+
 .as-none-object {
   width: 100%;
 }
+
 .as-none-object .card-title {
   display: none !important;
 }
+
 .as-none-object .card-body {
   margin-top: 0 !important;
 }
-.as-none-object *:after {
+
+.as-none-object *::after {
   display: none !important;
 }
 
@@ -191,11 +195,11 @@ div[data-theme=bootstrap5] textarea.form-control {
   display: none;
 }
 
-div[data-theme=bootstrap5] .as-none-object [data-schemapath]>*:nth-child(1) {
+div[data-theme="bootstrap5"] .as-none-object [data-schemapath]>*:nth-child(1) {
   width: 100% !important;
 }
 
-div[data-theme=bootstrap5] .form-check-input[type=checkbox] {
+div[data-theme="bootstrap5"] .form-check-input[type="checkbox"] {
   margin-left: 0 !important;
 }
 
