@@ -8,7 +8,7 @@
 
 Indispensable tool to work with JSON data. Makes it easy to handle any JSON schema in a user-friendly interface and adjusts the output for Silverstripe templates.
 
-This module is using [json-editor](https://github.com/json-editor/json-editor) under the hood. Refer to its [README](https://github.com/json-editor/json-editor/blob/master/README.md) to learn more about JSON Schema, all types, properties, and available options that you can use.
+This module is using [json-editor](https://github.com/json-editor/json-editor) under the hood. Refer to its [README](https://github.com/json-editor/json-editor/blob/master/README.md) to learn more about JSON Schema, all field types, properties, and available options that you can use.
 
 ![Screenshot](screenshots/json-editor.jpeg)
 
