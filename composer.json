@@ -1,14 +1,20 @@
 {
     "name": "goldfinch/json-editor",
-    "description": "",
+    "description": "Indispensable tool to work with JSON data. Makes it easy to handle any JSON schema and adjusts the output for Silverstripe templates",
     "type": "silverstripe-vendormodule",
-    "keywords": ["silverstripe"],
-    "license": "MIT",
-    "authors": [
-        {
-            "name": "Artem Karasev"
-        }
+    "keywords": [
+        "silverstripe",
+        "json-editor-field",
+        "json-editor-field-silverstripe",
+        "json-field",
+        "json-field-silverstripe",
+        "json-silverstripe"
     ],
+    "license": "MIT",
+    "authors": [{
+        "name": "Art Karasev",
+        "email": "art.karasev@proton.me"
+    }],
     "require": {
         "php": ">=8.0",
         "silverstripe/framework": "^5.0",
