@@ -10,6 +10,8 @@ Indispensable tool to work with JSON data. Makes it easy to handle any JSON sche
 
 This module is using [json-editor](https://github.com/json-editor/json-editor) under the hood. Refer to its [README](https://github.com/json-editor/json-editor/blob/master/README.md) to learn more about JSON Schema, all types, properties, and available options that you can use.
 
+![Screenshot](screenshots/json-editor.jpeg)
+
 ## Install
 
 ```
@@ -51,7 +53,7 @@ Page:
 
 Each JSON field must have a schema file. All schemas are stored within `app/_schema` directory.
 
-Based on the example above, we can say that our `Page.php` has `Json` field, therefore our schema file should be named `Page-Json.json` following `{class_name}-{field_name}.json` name rule.
+Based on the example above, we can say that our `Page.php` has `Json` field, therefore our schema file should be named as `Page-Json.json` following `{class_name}-{field_name}.json` name rule.
 
 Example:
 
