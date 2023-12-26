@@ -8,19 +8,25 @@ use SilverStripe\View\Requirements;
 
 class JSONEditorField extends TextField
 {
-    public function __construct($name, $title = null, $parent = null, $options = [], $value = '{}', $form = null, $schema = '{}')
-    {
+    public function __construct(
+        $name,
+        $title = null,
+        $parent = null,
+        $options = [],
+        $value = '{}',
+        $form = null,
+        $schema = '{}',
+    ) {
         $classname = (new ReflectionClass($parent))->getShortName();
-        $defaultSchema = BASE_PATH . '/app/_schema/' . $classname . '-' . $name . '.json';
+        $defaultSchema =
+            BASE_PATH . '/app/_schema/' . $classname . '-' . $name . '.json';
 
         // if ($schema != '{}' && file_exists($defaultSchema)) // ! double check: `$schema != '{}'` removed
-        if (file_exists($defaultSchema))
-        {
+        if (file_exists($defaultSchema)) {
             $schema = file_get_contents($defaultSchema);
         }
 
-        if ($schema === '')
-        {
+        if ($schema === '') {
             $schema = '{}';
         }
 
@@ -29,8 +35,12 @@ class JSONEditorField extends TextField
         parent::__construct($name, $title, $value);
         // parent::__construct($name, $title, $value, '', $form);
 
-        Requirements::css('goldfinch/json-editor:client/dist/resources/assets/json-editor-style.css');
-        Requirements::javascript('goldfinch/json-editor:client/dist/resources/assets/json-editor.js');
+        Requirements::css(
+            'goldfinch/json-editor:client/dist/resources/assets/json-editor-style.css',
+        );
+        Requirements::javascript(
+            'goldfinch/json-editor:client/dist/resources/assets/json-editor.js',
+        );
 
         // "format": "xhtml" or "format": "bbcode"
         // Requirements::css('https://cdn.jsdelivr.net/npm/sceditor@2.1.3/minified/themes/default.min.css');
@@ -52,10 +62,14 @@ class JSONEditorField extends TextField
         // ..
 
         // "format": "select2"
-            // Requirements::css('https://cdn.jsdelivr.net/npm/select2@latest/dist/css/select2.min.css');
-            // Requirements::javascript('https://cdn.jsdelivr.net/npm/select2@latest/dist/js/select2.min.js');
-            Requirements::css('goldfinch/json-editor:client/lib/select2/select2.min.css');
-            Requirements::javascript('goldfinch/json-editor:client/lib/select2/select2.min.js');
+        // Requirements::css('https://cdn.jsdelivr.net/npm/select2@latest/dist/css/select2.min.css');
+        // Requirements::javascript('https://cdn.jsdelivr.net/npm/select2@latest/dist/js/select2.min.js');
+        Requirements::css(
+            'goldfinch/json-editor:client/lib/select2/select2.min.css',
+        );
+        Requirements::javascript(
+            'goldfinch/json-editor:client/lib/select2/select2.min.js',
+        );
         // "color": {
         //   "type": "array",
         //   "format": "select2",

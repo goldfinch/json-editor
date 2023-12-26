@@ -4,7 +4,6 @@
     "items": {
         "type": "object",
         "properties": {
-
             "display": {
                 "type": "boolean",
                 "format": "checkbox",
@@ -12,162 +11,162 @@
             },
 
             "info": {
-            "type": "info",
-            "title": "Important:",
-            "description": "Lorem ipsum dolor"
+                "type": "info",
+                "title": "Important:",
+                "description": "Lorem ipsum dolor"
             },
             "arr": {
                 "type": "array",
                 "format": "table",
                 "items": {
-                  "type": "object",
-                  "properties": {
-                    "name": {
-                      "type": "string"
+                    "type": "object",
+                    "properties": {
+                        "name": {
+                            "type": "string"
+                        }
                     }
-                  }
                 }
-              },
-              "arr2": {
+            },
+            "arr2": {
                 "type": "array",
                 "uniqueItems": true,
                 "items": {
-                  "type": "string",
-                  "enum": ["value1","value2"]
+                    "type": "string",
+                    "enum": ["value1", "value2"]
                 }
-              },
-              "arr3": {
+            },
+            "arr3": {
                 "type": "array",
                 "format": "select",
                 "uniqueItems": true,
                 "items": {
-                  "type": "string",
-                  "enum": ["value1","value2"]
+                    "type": "string",
+                    "enum": ["value1", "value2"]
                 }
-              },
-              "grid": {
+            },
+            "grid": {
                 "type": "object",
                 "properties": {
-                  "name": { "type": "string" }
+                    "name": { "type": "string" }
                 },
                 "format": "grid"
-              },
-              "grid2": {
+            },
+            "grid2": {
                 "type": "object",
                 "format": "grid-strict",
                 "properties": {
-                  "a": {
-                    "title": "a",
-                    "type": "string",
-                    "options": {
-                      "grid_columns": 4
+                    "a": {
+                        "title": "a",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 4
+                        }
+                    },
+                    "b": {
+                        "title": "b",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 4,
+                            "grid_break": true
+                        }
+                    },
+                    "c": {
+                        "title": "c",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 6
+                        }
+                    },
+                    "d": {
+                        "title": "d",
+                        "type": "string",
+                        "options": {
+                            "grid_columns": 6
+                        }
                     }
-                  },
-                  "b": {
-                    "title": "b",
-                    "type": "string",
-                    "options": {
-                      "grid_columns": 4,
-                      "grid_break": true
-                    }
-                  },
-                  "c": {
-                    "title": "c",
-                    "type": "string",
-                    "options": {
-                      "grid_columns": 6
-                    }
-                  },
-                  "d": {
-                    "title": "d",
-                    "type": "string",
-                    "options": {
-                      "grid_columns": 6
-                    }
-                  }
                 }
-              },
-              "other": {
+            },
+            "other": {
                 "type": "object",
                 "properties": {
-                  "name": { "type": "string" }
+                    "name": { "type": "string" }
                 },
                 "format": "categories",
                 "basicCategoryTitle": "Main"
-              },
-              "infotext": {
+            },
+            "infotext": {
                 "type": "string",
                 "title": "Name",
                 "options": {
-                  "infoText": "Your full name"
+                    "infoText": "Your full name"
                 }
-              },
-              "enum": {
+            },
+            "enum": {
                 "type": "array",
                 "items": {
-                  "type": "string",
-                  "enum": ["1", "2", "3", "4"],
-                  "options": {
-                    "enum": [
-                      {},
-                      {
-                        "title": "Title 2"
-                      },
-                      { "infoText": "InfoText 3" },
-                      {
-                        "title": "Title 4",
-                        "infoText": "InfoText 4"
-                      }
-                    ]
-                  }
+                    "type": "string",
+                    "enum": ["1", "2", "3", "4"],
+                    "options": {
+                        "enum": [
+                            {},
+                            {
+                                "title": "Title 2"
+                            },
+                            { "infoText": "InfoText 3" },
+                            {
+                                "title": "Title 4",
+                                "infoText": "InfoText 4"
+                            }
+                        ]
+                    }
                 }
-              },
-              "dependencies": {
+            },
+            "dependencies": {
                 "title": "An object",
                 "type": "object",
                 "properties": {
-                  "fieldOne": {
-                    "title": "I should be changed to 'foo'",
-                    "type": "string",
-                    "enum": ["foo","bar"],
-                    "default": "bar"
-                  },
-                  "depender1": {
-                    "title": "I depend on fieldOne to be 'foo'",
-                    "type": "string",
-                    "enum": ["lorem","ipsum"],
-                    "options": {
-                      "dependencies": {
-                        "fieldOne": "foo"
-                      }
+                    "fieldOne": {
+                        "title": "I should be changed to 'foo'",
+                        "type": "string",
+                        "enum": ["foo", "bar"],
+                        "default": "bar"
+                    },
+                    "depender1": {
+                        "title": "I depend on fieldOne to be 'foo'",
+                        "type": "string",
+                        "enum": ["lorem", "ipsum"],
+                        "options": {
+                            "dependencies": {
+                                "fieldOne": "foo"
+                            }
+                        }
+                    },
+                    "depender2": {
+                        "title": "I depend on fieldOne to be 'bar'",
+                        "type": "string",
+                        "enum": ["dolor", "sit"],
+                        "options": {
+                            "dependencies": {
+                                "fieldOne": "bar"
+                            }
+                        }
                     }
-                  },
-                  "depender2": {
-                    "title": "I depend on fieldOne to be 'bar'",
-                    "type": "string",
-                    "enum": ["dolor", "sit"],
-                    "options": {
-                      "dependencies": {
-                        "fieldOne": "bar"
-                      }
-                    }
-                  }
                 }
-              },
-              "enumvals": {
+            },
+            "enumvals": {
                 "type": "object",
                 "properties": {
-                  "possible_colors": {
-                    "type": "array",
-                    "items": {
-                      "type": "string"
+                    "possible_colors": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        }
+                    },
+                    "primary_color": {
+                        "type": "string"
                     }
-                  },
-                  "primary_color": {
-                    "type": "string"
-                  }
                 }
-              }
+            }
         }
     }
 }

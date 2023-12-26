@@ -15,25 +15,26 @@ class JsonDataExtension extends Extension
 
     public function updateCMSFields(FieldList $fields)
     {
-        $fields->removeByName([
-            'Json',
-        ]);
+        $fields->removeByName(['Json']);
 
-        if ($this->owner->ID)
-        {
+        if ($this->owner->ID) {
             $path = str_replace('\\', '/', $this->owner->ClassName);
             $schemaParamsPath = BASE_PATH . '/app/_schema/' . $path . '.json';
 
-            if (file_exists($schemaParamsPath))
-            {
+            if (file_exists($schemaParamsPath)) {
                 $schemaParams = file_get_contents($schemaParamsPath);
 
-                $fields->addFieldsToTab(
-                    'Root.Main',
-                    [
-                        JSONEditorField::create('Json', 'Json Data', $this->owner, [], '{}', null, $schemaParams),
-                    ]
-                );
+                $fields->addFieldsToTab('Root.Main', [
+                    JSONEditorField::create(
+                        'Json',
+                        'Json Data',
+                        $this->owner,
+                        [],
+                        '{}',
+                        null,
+                        $schemaParams,
+                    ),
+                ]);
             }
         }
     }

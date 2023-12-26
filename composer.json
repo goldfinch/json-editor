@@ -2,9 +2,7 @@
     "name": "goldfinch/json-editor",
     "description": "",
     "type": "silverstripe-vendormodule",
-    "keywords": [
-        "silverstripe"
-    ],
+    "keywords": ["silverstripe"],
     "license": "MIT",
     "authors": [
         {
@@ -17,10 +15,7 @@
         "silverstripe/admin": "^2.0"
     },
     "extra": {
-        "expose": [
-            "client/dist",
-            "client/lib"
-        ]
+        "expose": ["client/dist", "client/lib"]
     },
     "autoload": {
         "psr-4": {

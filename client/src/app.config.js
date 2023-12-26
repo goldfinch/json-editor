@@ -5,10 +5,11 @@ export default function initCfg(command, mode, ssrBuild) {
   const buildAssetsDir = '../../../dist/jsoneditor/assets/';
 
   const jsoneditor = dev ? '../../../dist/jsoneditor/assets/jsoneditor/' : '';
-  const jsoneditor_images = dev ? './images/' : (`${buildAssetsDir}jsoneditor/images/`);
+  const jsoneditor_images = dev
+    ? './images/'
+    : `${buildAssetsDir}jsoneditor/images/`;
 
   return {
-
     host,
     certs: `/Applications/MAMP/Library/OpenSSL/certs/${host}`,
 

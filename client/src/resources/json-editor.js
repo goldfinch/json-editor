@@ -20,13 +20,17 @@ window.jsoneditorSetDefaultValue = (e) => {
     $('input.jsoneditorfield').entwine({
       // Constructor: onmatch
       onmatch() {
-	      this.each(function () {
+        this.each(function () {
           const startval = this.value;
-	      const schema = this.getAttribute('data-field-schema');
-	      const fieldOptions = JSON.parse(this.getAttribute('data-field-options'));
-	      const my_id = this.id;
+          const schema = this.getAttribute('data-field-schema');
+          const fieldOptions = JSON.parse(
+            this.getAttribute('data-field-options'),
+          );
+          const my_id = this.id;
 
-          const editorist = document.getElementById(jQuery(this).parent().find('.json-editor').attr('id')); // this.id + "_Editor"
+          const editorist = document.getElementById(
+            jQuery(this).parent().find('.json-editor').attr('id'),
+          ); // this.id + "_Editor"
 
           const options = {
             ajax: true,
@@ -52,7 +56,12 @@ window.jsoneditorSetDefaultValue = (e) => {
 
           editor.on('ready', () => {
             if (fieldOptions && fieldOptions.set_default_button) {
-              if (schema && schema != '' && schema != '{}' && JSON.parse(schema).type) {
+              if (
+                schema &&
+                schema != '' &&
+                schema != '{}' &&
+                JSON.parse(schema).type
+              ) {
                 if (!window.jsoneditor) {
                   window.jsoneditor = [];
                   window.jsoneditorschema = [];
@@ -62,26 +71,38 @@ window.jsoneditorSetDefaultValue = (e) => {
                 window.jsoneditorschema[my_id] = JSON.parse(schema);
                 window.jsoneditorfieldoptions[my_id] = fieldOptions;
 
-                jQuery(`#${my_id}`).parent().prepend(`<button data-id="${my_id}" onclick="window.jsoneditorSetDefaultValue(this)" type="button" title="Set Default value" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i><span> Set Default value</span></button>`);
+                jQuery(`#${my_id}`)
+                  .parent()
+                  .prepend(
+                    `<button data-id="${my_id}" onclick="window.jsoneditorSetDefaultValue(this)" type="button" title="Set Default value" class="btn btn-primary btn-sm"><i class="bi bi-pencil"></i><span> Set Default value</span></button>`,
+                  );
               }
             }
           });
 
-	      editor.on('change', () => {
-        	const errors = editor.validate();
-	        const indicator = document.getElementById('valid_indicator');
-	        let save_button = document.getElementById('Form_ItemEditForm_action_doSave');
+          editor.on('change', () => {
+            const errors = editor.validate();
+            const indicator = document.getElementById('valid_indicator');
+            let save_button = document.getElementById(
+              'Form_ItemEditForm_action_doSave',
+            );
 
             if (!save_button) {
-              save_button = document.getElementById('Form_EditForm_action_save');
+              save_button = document.getElementById(
+                'Form_EditForm_action_save',
+              );
 
               if (!save_button) {
-                save_button = document.getElementById('Form_EditForm_action_save_siteconfig');
+                save_button = document.getElementById(
+                  'Form_EditForm_action_save_siteconfig',
+                );
               }
             }
 
             if (!save_button) {
-              console.error('JSON editor: can\'s save json data due to the unrecognized action button ID on this page, see json-editor.js and extend if needed');
+              console.error(
+                "JSON editor: can's save json data due to the unrecognized action button ID on this page, see json-editor.js and extend if needed",
+              );
             }
 
             if (save_button) {
@@ -105,4 +126,4 @@ window.jsoneditorSetDefaultValue = (e) => {
       },
     });
   });
-}(jQuery));
+})(jQuery);

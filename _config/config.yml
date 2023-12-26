@@ -1,6 +1,6 @@
 ---
 Name: goldfinch-json-editor
-After: '#corefieldtypes'
+After: "#corefieldtypes"
 ---
 SilverStripe\Core\Injector\Injector:
   JSONText:

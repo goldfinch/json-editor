@@ -10,8 +10,7 @@ class DBJSONText extends DBText
     {
         $string = $this->value;
 
-        if (!$string)
-        {
+        if (!$string) {
             return $string;
         }
 

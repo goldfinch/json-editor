@@ -12,7 +12,6 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
   const { host } = cfg;
 
   return {
-
     resolve: {
       alias: {
         '~bootstrap': path.resolve(__dirname, 'node_modules/bootstrap'),
@@ -65,13 +64,9 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
 
     plugins: [
       laravel({
-        input: [
-          'resources/json-editor-style.scss',
-          'resources/json-editor.js',
-        ],
+        input: ['resources/json-editor-style.scss', 'resources/json-editor.js'],
         refresh: true,
       }),
-
     ],
 
     css: {
@@ -81,9 +76,7 @@ export default defineConfig(({ command, mode, ssrBuild }) => {
         },
       },
       postcss: {
-        plugins: [
-          autoprefixer,
-        ],
+        plugins: [autoprefixer],
       },
     },
   };
