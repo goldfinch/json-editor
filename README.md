@@ -43,7 +43,7 @@ public function getCMSFields()
 }
 ```
 
-(*) You can also use an extension instead.
+✳️ You can also use an extension instead.
 
 ```xml
 Page:
@@ -51,71 +51,29 @@ Page:
     - Goldfinch\JSONEditor\Extensions\JsonDataExtension
 ```
 
-Each JSON field must have a schema file. All schemas are stored within `app/_schema` directory.
+Each JSON field must have a schema file. Schema files are stored within `app/_schema` directory.
 
-Based on the example above, we can say that our `Page.php` has `Json` field, therefore our schema file should be named as `Page-Json.json` following `{class_name}-{field_name}.json` name rule.
+Based on the example above, we can say that our `Page.php` has `Json` field, therefore our schema file should be named as `Page-Json.json` following `{class_name}-{field_name}.json` pattern.
 
 Example:
 
 #### 1) Create schema file
-```
-touch app/_schema/Page-Json.json
-```
 
-#### 2) Add schema
+Use [**Taz**](https://github.com/goldfinch/taz)🌪️ to generate our schema file.
 
-Let's add some schema to our `Page-Json.json` file
-
-```json
-{
-  "type": "array",
-  "options": {},
-  "items": {
-      "type": "object",
-      "properties": {
-          "enabled": {
-              "title": "Enabled",
-              "type": "boolean",
-              "format": "checkbox",
-              "default": "true"
-          },
-          "firstname": {
-              "type": "string",
-              "title": "First name",
-              "options": {
-                  "infoText": "Your first name"
-              }
-          },
-          "lastname": {
-              "type": "string",
-              "title": "Last name",
-              "options": {
-                  "infoText": "Your last name"
-              }
-          },
-          "cars": {
-              "type": "array",
-              "title": "Cars",
-              "format": "select2",
-              "uniqueItems": true,
-              "items": {
-                  "type": "string",
-                  "enum": ["BMW", "Audi", "Volvo"]
-              }
-          },
-          "about": {
-              "type": "string",
-              "title": "About me",
-              "format": "jodit"
-          }
-      }
-  }
-}
+```bash
+php taz make:json-schema
 ```
 
-#### 3) Output JSON data in Silverstripe template.
+If you haven't used [**Taz**](https://github.com/goldfinch/taz)🌪️ before, *taz* file must be in your root project folder to be able to use the command above. Just copy it first:
 
-At this step, we can go and some JSON data through our field. Once we are done, we can output our pure JSON data using familiar Silverstripe syntax.
+```bash
+cp vendor/goldfinch/taz/taz taz
+```
+
+#### 2) Output JSON data in Silverstripe template.
+
+At this step, we can go and add some JSON data in CMS to play with. Once we are done, we can output our pure JSON data using familiar Silverstripe syntax.
 
 ```html
 <% with $Json.Parse %>

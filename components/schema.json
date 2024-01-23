@@ -1,0 +1,44 @@
+{
+    "type": "array",
+    "options": {},
+    "items": {
+        "type": "object",
+        "properties": {
+            "enabled": {
+                "title": "Enabled",
+                "type": "boolean",
+                "format": "checkbox",
+                "default": "true"
+            },
+            "firstname": {
+                "type": "string",
+                "title": "First name",
+                "options": {
+                    "infoText": "Your first name"
+                }
+            },
+            "lastname": {
+                "type": "string",
+                "title": "Last name",
+                "options": {
+                    "infoText": "Your last name"
+                }
+            },
+            "cars": {
+                "type": "array",
+                "title": "Cars",
+                "format": "select2",
+                "uniqueItems": true,
+                "items": {
+                    "type": "string",
+                    "enum": ["BMW", "Audi", "Volvo"]
+                }
+            },
+            "about": {
+                "type": "string",
+                "title": "About me",
+                "format": "jodit"
+            }
+        }
+    }
+  }
