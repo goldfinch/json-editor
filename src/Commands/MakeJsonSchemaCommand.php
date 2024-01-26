@@ -14,6 +14,8 @@ class MakeJsonSchemaCommand extends GeneratorCommand
 
     protected $description = 'Make new json schema';
 
+    protected $no_arguments = true;
+
     protected function execute($input, $output): int
     {
         $io = new InputOutput($input, $output);
