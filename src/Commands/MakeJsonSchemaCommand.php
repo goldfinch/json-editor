@@ -20,54 +20,26 @@ class MakeJsonSchemaCommand extends GeneratorCommand
     {
         $io = new InputOutput($input, $output);
 
-        $className = $io->question('Name of the class where Json field is going to be used', null, function ($answer) use ($io) {
-
-            if (!is_string($answer) || $answer === null) {
-                throw new \RuntimeException(
-                    'Invalid name'
-                );
-            } else if (strlen($answer) < 2) {
-                throw new \RuntimeException(
-                    'Too short name'
-                );
-            } else if(!preg_match('/^([A-z0-9\_]+)$/', $answer)) {
-                throw new \RuntimeException(
-                    'Name can contains letter, numbers and underscore'
-                );
-            }
-
-            return $answer;
-        });
-
-        $fieldName = $io->question('Name of the field', null, function ($answer) use ($io) {
-
-            if (!is_string($answer) || $answer === null) {
-                throw new \RuntimeException(
-                    'Invalid name'
-                );
-            } else if (strlen($answer) < 2) {
-                throw new \RuntimeException(
-                    'Too short name'
-                );
-            } else if(!preg_match('/^([A-z0-9\_]+)$/', $answer)) {
-                throw new \RuntimeException(
-                    'Name can contains letter, numbers and underscore'
-                );
-            }
-
-            return $answer;
-        });
+        $className = $this->askClassNameQuestion('What [class name] is this schema for? (eg: Page, Member)', $input, $output);
+        $fieldName = $this->askClassNameQuestion('What [field name] is this schema for? (eg: Title, Text)', $input, $output);
 
         $fs = new Filesystem();
 
-        $fs->copy(
-            BASE_PATH .
-                '/vendor/goldfinch/json-editor/components/schema.json',
-            'app/_schema/' . $className . '-' . $fieldName . '.json',
-        );
+        $target = 'app/_schema/' . $className . '-' . $fieldName . '.json';
+        $filename = $className . '-' . $fieldName . '.json';
 
-        $io->right('Json schema has been added');
+        if (!$fs->exists($target)) {
 
-        return Command::SUCCESS;
+            $fs->copy(
+                BASE_PATH . '/vendor/goldfinch/json-editor/components/schema.json',
+                'app/_schema/' . $filename
+            );
+
+            $io->right('Json schema has been added');
+            return Command::SUCCESS;
+        } else {
+            $io->wrong('The json schema ['.$filename.'] is already exists.');
+            return Command::FAILURE;
+        }
     }
 }
