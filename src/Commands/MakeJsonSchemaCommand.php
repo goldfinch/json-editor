@@ -20,8 +20,8 @@ class MakeJsonSchemaCommand extends GeneratorCommand
     {
         $io = new InputOutput($input, $output);
 
-        $className = $this->askClassNameQuestion('What [class name] is this schema for? (eg: Page, Member)', $input, $output);
-        $fieldName = $this->askClassNameQuestion('What [field name] is this schema for? (eg: Title, Text)', $input, $output);
+        $className = $this->askClassNameQuestion('What [class name] does this schema for? (eg: Page, Member)', $input, $output);
+        $fieldName = $this->askClassNameQuestion('What [field name] does this schema for? (eg: Title, Text)', $input, $output);
 
         $fs = new Filesystem();
 

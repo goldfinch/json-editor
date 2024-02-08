@@ -14,7 +14,7 @@ This module is using [json-editor](https://github.com/json-editor/json-editor) u
 
 ## Install
 
-```
+```bash
 composer require goldfinch/json-editor
 ```
 
@@ -65,7 +65,7 @@ Use [**Taz**](https://github.com/goldfinch/taz)🌪️ to generate our schema fi
 php taz make:json-schema
 ```
 
-If you haven't used [**Taz**](https://github.com/goldfinch/taz)🌪️ before, *taz* file must be in your root project folder to be able to use the command above. Just copy it first:
+>> If you haven't used [**Taz**](https://github.com/goldfinch/taz)🌪️ before, *taz* file must be presented in your root project folder `cp vendor/goldfinch/taz/taz taz`
 
 ```bash
 cp vendor/goldfinch/taz/taz taz
