@@ -67,10 +67,6 @@ php taz make:json-schema
 
 >> If you haven't used [**Taz**](https://github.com/goldfinch/taz)🌪️ before, *taz* file must be presented in your root project folder `cp vendor/goldfinch/taz/taz taz`
 
-```bash
-cp vendor/goldfinch/taz/taz taz
-```
-
 #### 2) Output JSON data in Silverstripe template.
 
 At this step, we can go and add some JSON data in CMS to play with. Once we are done, we can output our pure JSON data using familiar Silverstripe syntax.
