@@ -18,6 +18,17 @@ This module is using [json-editor](https://github.com/json-editor/json-editor) u
 composer require goldfinch/json-editor
 ```
 
+## Available Taz commands
+
+If you haven't used [**Taz**](https://github.com/goldfinch/taz)🌪️ before, *taz* file must be presented in your root project folder `cp vendor/goldfinch/taz/taz taz`
+
+---
+
+> Create schema file
+```bash
+php taz make:json-schema
+```
+
 ## Usage
 
 ```php
@@ -59,13 +70,11 @@ Example:
 
 #### 1) Create schema file
 
-Use [**Taz**](https://github.com/goldfinch/taz)🌪️ to generate our schema file.
+Use [**Taz**](https://github.com/goldfinch/taz)🌪️ to generate your Schema file. It will quickly lead you through the setup and take care of it for you.
 
 ```bash
 php taz make:json-schema
 ```
-
->> If you haven't used [**Taz**](https://github.com/goldfinch/taz)🌪️ before, *taz* file must be presented in your root project folder `cp vendor/goldfinch/taz/taz taz`
 
 #### 2) Output JSON data in Silverstripe template.
 
