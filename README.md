@@ -83,6 +83,7 @@ At this step, we can go and add some JSON data in CMS to play with. Once we are 
 ```html
 <% with $Json.Parse %>
     <% loop Me %>
+        <div><strong>Enabled:</strong> <% if enabled %>yes<% else %>no<% end_if %></div>
         <div><strong>First name:</strong> $firstname</div>
         <div><strong>Last name:</strong> $lastname</div>
         <div><strong>Cars:</strong> <% loop cars %><% if not IsFirst %>, <% end_if %>$Me<% end_loop %></div>
