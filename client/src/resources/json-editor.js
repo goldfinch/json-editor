@@ -9,7 +9,7 @@ window.jsoneditorSetDefaultValue = (e) => {
     const editorist = window.jsoneditor[my_id];
     const schema = window.jsoneditorschema[my_id];
     if (editorist) {
-      console.log(schema.properties);
+      // console.log(schema.properties);
       editorist.setValue(schema.properties);
     }
   }
@@ -54,6 +54,12 @@ window.jsoneditorSetDefaultValue = (e) => {
 
           const editor = new JSONEditor(editorist, options);
 
+          if (!window.jsoneditor) {
+            window.jsoneditor = [];
+            window.jsoneditorschema = [];
+            window.jsoneditorfieldoptions = [];
+          }
+
           editor.on('ready', () => {
             if (fieldOptions && fieldOptions.set_default_button) {
               if (
@@ -62,14 +68,6 @@ window.jsoneditorSetDefaultValue = (e) => {
                 schema != '{}' &&
                 JSON.parse(schema).type
               ) {
-                if (!window.jsoneditor) {
-                  window.jsoneditor = [];
-                  window.jsoneditorschema = [];
-                  window.jsoneditorfieldoptions = [];
-                }
-                window.jsoneditor[my_id] = editor;
-                window.jsoneditorschema[my_id] = JSON.parse(schema);
-                window.jsoneditorfieldoptions[my_id] = fieldOptions;
 
                 jQuery(`#${my_id}`)
                   .parent()
@@ -78,6 +76,10 @@ window.jsoneditorSetDefaultValue = (e) => {
                   );
               }
             }
+
+            window.jsoneditor[my_id] = editor;
+            window.jsoneditorschema[my_id] = JSON.parse(schema);
+            window.jsoneditorfieldoptions[my_id] = fieldOptions;
           });
 
           editor.on('change', () => {
