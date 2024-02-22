@@ -53,6 +53,7 @@ window.jsoneditorSetDefaultValue = (e) => {
           }
 
           const editor = new JSONEditor(editorist, options);
+          window.JSONEditorClass = JSONEditor;
 
           if (!window.jsoneditor) {
             window.jsoneditor = [];
@@ -129,6 +130,7 @@ window.jsoneditorSetDefaultValue = (e) => {
           });
         });
       },
+      onunmatch() {},
     });
   });
 })(jQuery);
