@@ -222,3 +222,21 @@ div[data-theme='bootstrap5'] .form-text {
   margin-top: 0;
   margin-bottom: 10px;
 }
+
+.jsoneditor.jsoneditor--compact div[data-theme=bootstrap5].json-editor.je-ready {
+  padding-top: 0;
+  margin-top: 0;
+  border-top: 0;
+}
+
+.jsoneditor.jsoneditor--compact div[data-theme=bootstrap5] .card.card-body {
+  margin-top: 0 !important;
+}
+
+.jsoneditor.jsoneditor--compact div[data-theme=bootstrap5] .card-title {
+  display: none;
+}
+
+.jsoneditor.jsoneditor--nolabel.jsoneditor > label {
+  display: none;
+}

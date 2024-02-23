@@ -111,4 +111,18 @@ class JSONEditorField extends TextField
         $this->setAttribute('data-field-schema', $schema);
         $this->setAttribute('data-field-options', json_encode($options));
     }
+
+    public function compact()
+    {
+        $this->addExtraClass('jsoneditor--compact');
+
+        return $this;
+    }
+
+    public function nolabel()
+    {
+        $this->addExtraClass('jsoneditor--nolabel');
+
+        return $this;
+    }
 }
