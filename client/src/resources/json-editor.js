@@ -32,7 +32,7 @@ window.jsoneditorSetDefaultValue = (e) => {
             jQuery(this).parent().find('.json-editor').attr('id'),
           ); // this.id + "_Editor"
 
-          const options = {
+          var options = {
             ajax: true,
             schema: JSON.parse(schema),
             // required_by_default: true,
@@ -47,6 +47,10 @@ window.jsoneditorSetDefaultValue = (e) => {
             // object_layout: 'normal',
             // show_errors: 'interaction',
           };
+
+          if (fieldOptions && typeof fieldOptions === 'object') {
+            Object.assign(options, fieldOptions);
+          }
 
           if (startval && startval != '{}') {
             options.startval = JSON.parse(startval);
